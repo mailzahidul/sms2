@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="card m-auto">
+    <div class="card-header">
+        <i class="icon-note"></i> Teacher Create Form
+    </div>
+    <div class="card-body">
+        <form action="" method="post">
+            {%csrf_token%}
+            {{forms.as_p}}
+            <br>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

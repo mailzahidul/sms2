@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <i class="fa fa-align-justify"></i> Staff List
+    </div>
+    <div class="card-body">
+        <table class="table table-responsive-sm">
+            <thead>
+            <tr>
+                <th scope="col">Sl No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in staff %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td><a href="{% url 'staff-details' i.id %}">{{ i.name }}</a></td>
+                <td><img height="120px" width="80px" src="{{ i.photo.url }}"></td>
+                <td>{{ i.email }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'edit-staff' i.id %}">Edit</a>
+                    <a class="btn btn-danger" href="{% url 'delete-staff' i.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+<!--{% url 'student-edit' i.id %}-->
